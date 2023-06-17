@@ -1,4 +1,5 @@
 import con from "../config/db.js";
+import bcrypt from "bcrypt";
 
 const db = con;
 
@@ -6,11 +7,17 @@ const db = con;
 const addUser = async (req, res) => {
   const { Firstname, Lastname, Middlename, Position, Username, Password } =
     req.body;
-  const sql =
-    "INSERT INTO users(Firstname, Lastname, Middlename, Position, Username, Password) values (?, ?, ?, ?, ?, ?)";
+  const hashpassword = await bcrypt.hash(Password, 10);
   db.query(
-    sql,
-    [Firstname, Lastname, Middlename, Position, Username, Password],
+    `Insert into users SET ?`,
+    {
+      Firstname: Firstname,
+      Lastname: Lastname,
+      Middlename: Middlename,
+      Position: Position,
+      Username: Username,
+      Password: hashpassword,
+    },
     (err, result) => {
       if (err) {
         console.log(err);
