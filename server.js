@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import colors from "colors";
 import userRoutes from "./routes/userRoutes.js";
 import destinationRoutes from "./routes/destinationRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 // dotenv config
 dotenv.config();
@@ -23,7 +24,8 @@ app.get("/", (req, res) => {
   res.send("Bus Ticketing API is running with no errors");
 });
 app.use("/api/v1", userRoutes);
-app.use("/api/v2/", destinationRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v2", destinationRoutes);
 
 // App listener where backend fired up
 app.listen(port, () => {
