@@ -31,4 +31,8 @@ const login = async (req, res) => {
   });
 };
 
-export { login };
+const logout = async (req, res) => {
+  res.send("Logout Successfully");
+};
+
+export { login, logout };
