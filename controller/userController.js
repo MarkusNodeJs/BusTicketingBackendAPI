@@ -76,6 +76,7 @@ const deleteUser = async (req, res) => {
       res.status(201).json({
         message: "Deleted Successfully",
       });
+      console.log(result);
     }
   });
 };
@@ -85,16 +86,18 @@ const updateUser = async (req, res) => {
   const { id } = req.params;
   const { Firstname, Lastname, Middlename, Position, Username, Password } =
     req.body;
+  const hashpassword = await bcrypt.hash(Password, 10);
   const sql =
     "UPDATE users SET Firstname = ?, Lastname = ?, Middlename = ?, Position = ?, Username = ?, Password =? Where id = ?";
   db.query(
     sql,
-    [Firstname, Lastname, Middlename, Position, Username, Password, id],
+    [Firstname, Lastname, Middlename, Position, Username, hashpassword, id],
     (err, result) => {
       if (err) {
         console.log(err);
       } else {
         res.status(200).json({ message: "Updated Successfully" });
+        console.log(result);
       }
     }
   );
