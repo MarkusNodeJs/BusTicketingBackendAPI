@@ -31,6 +31,7 @@ const addDestination = async (req, res) => {
           console.log(err);
         } else {
           res.status(200).json({ message: "Destination Added Successfully" });
+          console.log("Destination Added Successfully");
         }
       });
     }
@@ -46,6 +47,7 @@ const getOneDestination = async (req, res) => {
       console.log(err);
     } else {
       res.send(result);
+      console.log(result);
     }
   });
 };
@@ -61,6 +63,7 @@ const deleteDestination = async (req, res) => {
       res.status(201).json({
         message: "Successfully Deleted",
       });
+      console.log("Destination Deleted Successfully");
     }
   });
 };
@@ -81,6 +84,7 @@ const updateDestination = async (req, res) => {
         res.status(200).json({
           message: "Updated Successfully",
         });
+        console.log("Destination Updated Successfully");
       }
     }
   );

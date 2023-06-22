@@ -23,9 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("Bus Ticketing API is running with no errors");
 });
-app.use("/api/v1", userRoutes);
-app.use("/api/v1", authRoutes);
-app.use("/api/v2", destinationRoutes);
+app.use("/api.busticketing.com/v1", userRoutes);
+app.use("/api.busticketing.com/v1", authRoutes);
+app.use("/api.busticketing.com/v2", destinationRoutes);
 
 // App listener where backend fired up
 app.listen(port, () => {
