@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api.busticketing.com/v1", userRoutes);
 app.use("/api.busticketing.com/v1", authRoutes);
-app.use("/api.busticketing.com/v2", destinationRoutes);
+app.use("/api.busticketing.com/v1", destinationRoutes);
 
 // App listener where backend fired up
 app.listen(port, () => {
