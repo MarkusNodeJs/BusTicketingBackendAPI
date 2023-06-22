@@ -21,7 +21,7 @@ const login = async (req, res) => {
         }
         if (isMatch) {
           // Passwords match, user is authenticated
-          res.status(200).json({ message: "Login Successful" });
+          res.status(200).json({ message: "Login Successfully" });
           console.log("Login Successfully");
         } else {
           res.status(401).json({ message: "Invalid Username or Password" });
