@@ -32,7 +32,7 @@ const registerUser = async (req, res) => {
             res.status(200).json({
               message: "Successfully Added",
             });
-            console.log("Successfully Added");
+            console.log("User Successfully Added");
           }
         }
       );
