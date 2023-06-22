@@ -8,8 +8,8 @@ const registerUser = async (req, res) => {
   const { Firstname, Lastname, Middlename, Position, Username, Password } =
     req.body;
   const hashpassword = await bcrypt.hash(Password, 10);
-  const isResgisterUser = "Select * from users WHERE Username = ?";
-  db.query(isResgisterUser, Username, (err, result) => {
+  const isResgisteredUser = "Select * from users WHERE Username = ?";
+  db.query(isResgisteredUser, Username, (err, result) => {
     if (result != "") {
       res.status(301).json({ message: "Username is already exist" });
       console.log(result);
