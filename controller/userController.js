@@ -9,6 +9,7 @@ const registerUser = async (req, res) => {
     req.body;
   const hashpassword = await bcrypt.hash(Password, 10);
   const isResgisteredUser = "Select * from users WHERE Username = ?";
+  const sql = `Insert into users SET ?`;
   db.query(isResgisteredUser, Username, (err, user) => {
     if (!user) {
       res.status(301).json({ message: "Username is already exist" });
@@ -16,7 +17,7 @@ const registerUser = async (req, res) => {
     }
     if (user) {
       db.query(
-        `Insert into users SET ?`,
+        sql,
         {
           Firstname: Firstname,
           Lastname: Lastname,
