@@ -81,7 +81,7 @@ const updateDestination = async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.status(200).json({
+        res.status(201).json({
           message: "Updated Successfully",
         });
         console.log("Destination Updated Successfully");
