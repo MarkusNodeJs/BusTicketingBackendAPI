@@ -2,10 +2,10 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import colors from "colors";
 import userRoutes from "./routes/userRoutes.js";
 import destinationRoutes from "./routes/destinationRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import colors from "colors";
 
 // dotenv config
 dotenv.config();

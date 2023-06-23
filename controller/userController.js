@@ -3,18 +3,18 @@ import bcrypt from "bcrypt";
 
 const db = con;
 
-//Register user
+// Register user
 const registerUser = async (req, res) => {
   const { Firstname, Lastname, Middlename, Position, Username, Password } =
     req.body;
   const hashpassword = await bcrypt.hash(Password, 10);
   const isResgisteredUser = "Select * from users WHERE Username = ?";
-  db.query(isResgisteredUser, Username, (err, result) => {
-    if (result != "") {
+  db.query(isResgisteredUser, Username, (err, user) => {
+    if (!user) {
       res.status(301).json({ message: "Username is already exist" });
       console.log(result);
     }
-    if (result == "") {
+    if (user) {
       db.query(
         `Insert into users SET ?`,
         {
