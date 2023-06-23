@@ -21,7 +21,7 @@ const addDestination = async (req, res) => {
     "SELECT * FROM DESTINATIONS where from_address = ? and to_address = ?;";
   db.query(resultt, [from_address, to_address], (err, result) => {
     if (result != "") {
-      res.status(301).json({ message: "Destination is already exist!" });
+      res.status(401).json({ message: "Destination is already exist!" });
     }
     if (result == "") {
       const sql =
