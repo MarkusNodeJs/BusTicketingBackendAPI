@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
 import destinationRoutes from "./routes/destinationRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import colors from "colors";
+import colors from "colors"; 
 
 // dotenv config
 dotenv.config();
