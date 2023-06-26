@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
   const sql = `Insert into users SET ?`;
   db.query(isResgisteredUser, Username, (err, user) => {
     if (user != "") {
-      res.status(301).json({ message: "Username is already exist" });
+      res.status(302).json({ message: "Username is already exist" });
       console.log("User is already exist!");
     }
     if (user == "") {
