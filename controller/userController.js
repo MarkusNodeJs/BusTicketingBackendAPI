@@ -11,11 +11,11 @@ const registerUser = async (req, res) => {
   const isResgisteredUser = "Select * from users WHERE Username = ?";
   const sql = `Insert into users SET ?`;
   db.query(isResgisteredUser, Username, (err, user) => {
-    if (!user) {
+    if (user != "") {
       res.status(301).json({ message: "Username is already exist" });
-      console.log(result);
+      console.log("User is already exist!");
     }
-    if (user) {
+    if (user == "") {
       db.query(
         sql,
         {
@@ -42,7 +42,7 @@ const registerUser = async (req, res) => {
 };
 
 // get all user
-const getAllUser = async (req, res) => {
+const getUsers = async (req, res) => {
   const sql = "SELECT * FROM users";
   db.query(sql, (err, result) => {
     if (err) {
@@ -54,7 +54,7 @@ const getAllUser = async (req, res) => {
 };
 
 // get single user
-const getOneUser = async (req, res) => {
+const getUser = async (req, res) => {
   const { id } = req.params;
   const sql = "SELECT * FROM users where id = ?";
   db.query(sql, id, (err, result) => {
@@ -104,4 +104,4 @@ const updateUser = async (req, res) => {
   );
 };
 
-export { registerUser, getAllUser, getOneUser, deleteUser, updateUser };
+export { registerUser, getUsers, getUser, deleteUser, updateUser };

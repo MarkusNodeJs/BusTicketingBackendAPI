@@ -3,7 +3,7 @@ import con from "../config/db.js";
 const db = con;
 
 // Get All Destination
-const getAllDestination = async (req, res) => {
+const getDestinations = async (req, res) => {
   const sql = "SELECT * FROM destinations order by from_address, to_address";
   db.query(sql, (err, result) => {
     if (err) {
@@ -39,7 +39,7 @@ const addDestination = async (req, res) => {
 };
 
 // Get One Destination
-const getOneDestination = async (req, res) => {
+const getDestination = async (req, res) => {
   const { desid } = req.params;
   const sql = "Select * from destinations where desid = ?";
   db.query(sql, desid, (err, result) => {
@@ -91,9 +91,9 @@ const updateDestination = async (req, res) => {
 };
 
 export {
-  getAllDestination,
+  getDestinations,
   addDestination,
-  getOneDestination,
+  getDestination,
   deleteDestination,
   updateDestination,
 };

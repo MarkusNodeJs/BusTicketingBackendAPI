@@ -1,16 +1,16 @@
 import express from "express";
 const router = express.Router();
 import {
-  getAllDestination,
+  getDestinations,
   addDestination,
-  getOneDestination,
+  getDestination,
   deleteDestination,
   updateDestination,
 } from "../controller/destinationController.js";
 
-router.get("/destination", getAllDestination);
+router.get("/destination", getDestinations);
 router.post("/destination", addDestination);
-router.get("/destination/:desid", getOneDestination);
+router.get("/destination/:desid", getDestination);
 router.delete("/destination/:desid", deleteDestination);
 router.put("/destination/:desid", updateDestination);
 
