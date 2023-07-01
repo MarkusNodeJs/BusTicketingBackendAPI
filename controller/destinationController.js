@@ -18,15 +18,16 @@ const getDestinations = async (req, res) => {
 const addDestination = async (req, res) => {
   const { from_address, to_address, rate, note } = req.body;
   let resultt =
-    "SELECT * FROM DESTINATIONS where from_address = ? and to_address = ?;";
-  db.query(resultt, [from_address, to_address], (err, result) => {
-    if (result != "") {
+    "SELECT * FROM destinations where from_address = ? and to_address = ?;";
+  db.query(resultt, [from_address, to_address], (err, desti) => {
+    if (desti != "") {
       res.status(401).json({ message: "Destination is already exist!" });
       console.log("Destination already exist");
+      console.log(desti);
     }
-    if (result == "") {
+    if (desti == "") {
       const sql =
-        "INSERT INTO DESTINATIONS( from_address, to_address, rate, note ) values (?, ?, ?, ?)";
+        "INSERT INTO destinations( from_address, to_address, rate, note ) values (?, ?, ?, ?)";
       db.query(sql, [from_address, to_address, rate, note], (err, result) => {
         if (err) {
           console.log(err);
