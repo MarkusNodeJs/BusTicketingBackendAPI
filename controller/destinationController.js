@@ -22,6 +22,7 @@ const addDestination = async (req, res) => {
   db.query(resultt, [from_address, to_address], (err, result) => {
     if (result != "") {
       res.status(401).json({ message: "Destination is already exist!" });
+      console.log("Destination already exist");
     }
     if (result == "") {
       const sql =
