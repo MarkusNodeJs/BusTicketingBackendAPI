@@ -29,5 +29,8 @@ app.use("/api.busticketing.com/v1", destinationRoutes);
 
 // App listener where backend fired up
 app.listen(port, () => {
-  console.log(`Backend API is running on http://localhost:${port}`.bgCyan);
+  console.log(
+    `Backend API is running on https://busticketingbackendapi.onrender.com`
+      .bgCyan
+  );
 });
