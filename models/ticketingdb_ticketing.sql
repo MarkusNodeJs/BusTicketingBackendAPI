@@ -41,3 +41,5 @@ CREATE TABLE `ticketing` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-06-17  9:11:30
+
+-- https://www.youtube.com/watch?v=TMGHOW8Hzvw
